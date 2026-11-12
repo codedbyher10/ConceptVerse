@@ -1,0 +1,306 @@
+:root{
+    --bg-main:#0B1121;
+    --bg-panel:#131B2F;
+    --bg-card:#1A233A;
+    --accent:#3B82F6;
+    --accent2:#60A5FA;
+    --text:#FFFFFF;
+    --muted:#9CA3AF;
+    --border:rgba(255,255,255,.08);
+}
+
+body.light-mode{
+    --bg-main:#F8FAFC;
+    --bg-panel:#FFFFFF;
+    --bg-card:#EEF2FF;
+    --accent:#2563EB;
+    --accent2:#3B82F6;
+    --text:#111827;
+    --muted:#6B7280;
+    --border:rgba(0,0,0,.08);
+}
+
+html,body{
+    margin:0;
+    padding:0;
+    width:100%;
+    min-height:100%;
+    background:var(--bg-main);
+}
+
+body{
+    box-sizing:border-box;
+    color:var(--text);
+    font-family:Segoe UI,Arial,sans-serif;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+
+.cv-container{
+    width:100%;
+    box-sizing:border-box;
+    padding:14px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.cv-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-bottom:8px;
+    border-bottom:1px solid var(--border);
+}
+
+.brand-title-wrap{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.header-logo{
+    width:28px;
+    height:28px;
+}
+
+.cv-brand h1{
+    margin:0;
+    font-size:19px;
+}
+
+.cv-brand span{
+    color:var(--accent);
+}
+
+.cv-brand p{
+    margin:1px 0 0;
+    font-size:11px;
+    color:var(--muted);
+}
+
+.icon-btn{
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    border:1px solid var(--border);
+    background:transparent;
+    color:var(--text);
+    cursor:pointer;
+}
+
+.cv-captured-box{
+    background:var(--bg-panel);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:10px;
+    font-size:13px;
+    line-height:1.5;
+    color:var(--text);
+    height:100px;
+    max-height:100px;
+    overflow-y:auto;
+    overflow-x:hidden;
+    box-sizing:border-box;
+}
+
+.cv-captured-box::-webkit-scrollbar{
+    width:6px;
+}
+
+.cv-captured-box::-webkit-scrollbar-thumb{
+    background:#3B82F6;
+    border-radius:10px;
+}
+
+.cv-config{
+    display:flex;
+    gap:12px;
+}
+
+.cv-style,
+.cv-difficulty{
+    flex:1;
+}
+
+.cv-style label,
+.cv-difficulty label{
+    display:block;
+    margin-bottom:5px;
+    font-size:11px;
+    color:var(--muted);
+    font-weight:600;
+}
+
+.style-buttons{
+    display:flex;
+    gap:5px;
+}
+
+.style-btn{
+    padding:6px 8px;
+    border-radius:7px;
+    border:1px solid var(--border);
+    background:var(--bg-card);
+    color:var(--muted);
+    cursor:pointer;
+    font-size:11px;
+}
+
+.style-btn.active{
+    background:var(--accent);
+    color:#fff;
+}
+
+.slider{
+    width:100%;
+    height:6px;
+    appearance:none;
+    border-radius:20px;
+    background:rgba(255,255,255,.15);
+    outline:none;
+    cursor:pointer;
+}
+
+.slider::-webkit-slider-thumb{
+    appearance:none;
+    width:16px;
+    height:16px;
+    border-radius:50%;
+    background:#3B82F6;
+    cursor:pointer;
+}
+
+.slider-labels{
+    display:flex;
+    justify-content:space-between;
+    margin-top:5px;
+    font-size:9px;
+    color:var(--muted);
+}
+
+.cv-build-btn{
+    width:100%;
+    padding:11px;
+    border:none;
+    border-radius:10px;
+    font-weight:bold;
+    font-size:13px;
+    background:linear-gradient(90deg,#2563EB,#60A5FA);
+    color:white;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.cv-build-btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 8px 20px rgba(59,130,246,.3);
+}
+
+.cv-build-btn:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+    transform:none;
+}
+
+.cv-results-stack{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+    height:auto;
+}
+
+.cv-card{
+    background:rgba(255,255,255,.04);
+    backdrop-filter:blur(14px);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:10px;
+    min-height:0;
+}
+
+.cv-card h3{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    margin:0 0 7px;
+    color:var(--accent2);
+    font-size:10px;
+    text-transform:uppercase;
+}
+
+.result-icon{
+    width:16px;
+    color:var(--accent2);
+}
+
+.cv-card p{
+    margin:0;
+    font-size:11px;
+    line-height:1.5;
+}
+
+.analogy-word{
+    margin-left:2px;
+}
+
+/* Opening animation */
+
+#loading-screen{
+    position:fixed;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:var(--bg-main);
+    z-index:999;
+    opacity:1;
+    transition:opacity .35s ease;
+}
+
+#loading-screen.hide{
+    opacity:0;
+}
+
+.cv-logo-spinner{
+    width:70px;
+    height:70px;
+    object-fit:contain;
+    animation:cvLogoPulse .8s ease-in-out infinite alternate;
+}
+
+.loading-text{
+    margin:10px 0 2px;
+    font-size:20px;
+    letter-spacing:1px;
+    animation:cvTextFade .8s ease-in-out infinite alternate;
+}
+
+.loading-text span{
+    color:var(--accent);
+}
+
+#loading-screen p{
+    margin:0;
+    font-size:11px;
+    color:var(--muted);
+}
+
+@keyframes cvLogoPulse{
+    from{
+        transform:scale(.85) rotate(-5deg);
+    }
+    to{
+        transform:scale(1.05) rotate(5deg);
+    }
+}
+
+@keyframes cvTextFade{
+    from{
+        opacity:.5;
+    }
+    to{
+        opacity:1;
+    }
+}

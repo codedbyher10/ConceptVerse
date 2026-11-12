@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "ConceptVerse",
+  "version": "1.0",
+  "description": "AI-Powered Analogy and Mnemonic Learning Assistant",
+
+  "action": {
+    "default_icon": "assets/concept verse icon.png"
+  },
+
+  "icons": {
+    "128": "assets/concept verse icon.png"
+  },
+
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+
+  "host_permissions": [
+    "http://127.0.0.1:8000/*"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "popup.html",
+        "popup.css",
+        "popup.js",
+        "assets/*",
+        "icons/*"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
